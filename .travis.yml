@@ -9,12 +9,12 @@ script:
   - docker run -e CI=true dev-client-image npm test
 
 after_success:
-  - docker build -t lioneltay/multi-client ./client
-  - docker build -t lioneltay/multi-nginx ./nginx
-  - docker build -t lioneltay/multi-api ./api
-  - docker build -t lioneltay/multi-worker ./worker
+  - docker build -t lioneltay/multi-client:latest ./client
+  - docker build -t lioneltay/multi-nginx:latest ./nginx
+  - docker build -t lioneltay/multi-api:latest ./api
+  - docker build -t lioneltay/multi-worker:latest ./worker
   - echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
-  - docker push lioneltay/multi-client
-  - docker push lioneltay/multi-nginx
-  - docker push lioneltay/multi-api
-  - docker push lioneltay/multi-worker
+  - docker push lioneltay/multi-client:latest
+  - docker push lioneltay/multi-nginx:latest
+  - docker push lioneltay/multi-api:latest
+  - docker push lioneltay/multi-worker:latest
