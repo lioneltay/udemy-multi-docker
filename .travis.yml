@@ -10,7 +10,7 @@ script:
 
 after_success:
   - docker build -t lioneltay/multi-client ./client
-  - docker build -t lioneltay/multi-nginx ./nxing
+  - docker build -t lioneltay/multi-nginx ./nginx
   - docker build -t lioneltay/multi-api ./api
   - docker build -t lioneltay/multi-worker ./worker
   - echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
